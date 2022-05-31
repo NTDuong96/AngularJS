@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-model Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app>
+    Enter Name: <input type="text" ng-model="name"/>
+    <div>
+        こんにちわ {{name}}
+    </div>
+<!--ng-model dùng để gắn data 2 chiều cho AngularJS.-->
+<!--Gắn giữa element (input, select, textarea) với 1 giá trị được gọi đến trong object $scope-->
+<!--Giá trị được gọi đến của ng-model được truy cập qua object $scope-->
+</body>
+</html>

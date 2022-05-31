@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-repeat Demo</title>
+    <script src="angular.min.js"></script>
+    <style>
+        div{
+            border: 1px solid green;
+            width:100%;
+            height:50px;
+            display:block;
+            margin-bottom:10px;
+            text-align:center;
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body ng-app="" ng-init="owners=['Bill','Steve','Jack']">
+    <ol>
+        <li ng-repeat="name in owners">
+        {{name}}
+        </li>
+    </ol>
+<!--    ng-repeat được lặp với các chuỗi tên trong mảng owners-->
+<!--    <ol> được áp dụng lặp mảng bằng cách đánh số-->
+<div ng-repeat="name in owners">
+    {{name}}
+</div>
+<!--ng-repeat với div được lặp đi kèm với định dạng style ở trên-->
+</body>
+</html>

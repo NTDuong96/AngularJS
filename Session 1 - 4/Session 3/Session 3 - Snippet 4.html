@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-init Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <div ng-app ng-init="greet='こんにちわ!'; amount=100; myArr=[200,300];
+person={firstName:'Nguyen',lastName:'Duong'}">
+        {{greet}}
+        {{person.firstName}}</br>
+                {{amount}}
+        <br/>
+        {{myArr[1]}}<br>
+        {{myArr[0]}}
+    </div>
+<!--Directive ng-init được sử dụng để khởi chạy app AngularJS trên HTML.-->
+<!--Nó được sử dụng để đặt giá trị cho các biến được sử dụng trong app-->
+<!--Cách sử dụng (để hiển thị trên view) được gọi từ các {{biểu thức}}-->
+</body>
+</html>

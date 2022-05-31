@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Registration</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="EventApp">
+    <h1>Event</h1>
+    <div ng-controller="eventcontroller">
+        New Members:<input type="text" ng-model="quantity" id="quantity" ng-keypress="total=''">
+        <br>
+        <br>
+        Registration Fees:<input type="text" ng-model="fees" id="fees">
+        <input type="button" value="Calculate" ng-click="Calc()"/>
+        <b>Total amount:</b> {{total}}
+    </div>
+<!--    Khai báo các type và model cho input, cùng với id, event click (với Registration fees)-->
+    <script>
+        var app=angular.module('EventApp',[]);
+        app.controller('eventcontroller',function($scope){
+            $scope.quantity=0
+            $scope.fees=0
+            $scope.total="";
+            // 3 scope trên khai báo giá trị ban đầu
+            // scope dưới định nghĩa hàm function để tính total
+            $scope.Calc=function(){
+                if($scope.quantity>0 && $scope.fees>0)
+                {
+                    $scope.total=$scope.quantity*$scope.fees;
+                    // Nếu có quantity (>0, đồng thời có fee), trả về kết quả total ($scope cũng giống với this trong JavaScript)
+                }else
+                {
+                    $scope.total="invalid input";
+                    // Nếu không có quantity trả về kết quả chuỗi "không hợp lệ"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

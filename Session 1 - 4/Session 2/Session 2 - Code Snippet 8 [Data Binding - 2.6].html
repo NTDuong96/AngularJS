@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo for a Simple AngularJS App</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <div>
+        Course <input type="text" ng-model="course" placeholder="enter course">
+        <p>こんにちわ!</p>
+        <p>{{ course }}へようこそ</p>
+    </div>
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('myController',function($scope){
+            $scope.course="AngularJS";
+        });
+    </script>
+<!-- Không thêm directive ng-app="myApp", phần text "AngularJS" sẽ không hiển thị, chỉ có biểu thức {{course}}-->
+</body>
+</html>

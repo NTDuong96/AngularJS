@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-app Directive Test</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myAngularApp">
+<!--ng-app có thể được đặt với chuỗi rỗng, hoặc không cần gán giá trị => module không có tên-->
+    <div>
+        {{4/2}}
+    <div>
+        {{10/7}}
+    </div>
+    <div>
+        {{10/2}}
+    </div>
+    </div>
+<script>
+    var app=angular.module('myAngularApp',[]);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<!--Thêm directive vào element html-->
+<!--Với mỗi ng-app, App AngularJS tạo 1 object scope là $rootScope (Scope tổng)-->
+<head>
+    <meta charset="UTF-8">
+    <title>Demo for a Simple AngularJS App</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="myController">
+<!--Sau khi thêm module, controller là thành phần kế tiếp của App
+    (Controller điều khiển dòng dữ liệu trong app AngularJS)-->
+<!--Với mỗi 1 ng-controller (gắn với 1 element), nó sẽ tạo các scope con cho element đó,
+    Kế thừa các đặc tính của scope tổng ($rootScope)-->
+<!-- $scope là object dựng sẵn trong AngularJS
+    Được sử dụng để khai báo/định nghĩa biến cho app và hàm (gắn với app để app chạy)-->
+    <div>
+        <h3>Please enter name here.</h3>
+        Name:<input type="text" ng-model="name" placeholder "enter name">
+        <p>Hello! <strong>{{name}}</strong></p>
+        <p>AngularJS ようこそ!</p>
+    </div>
+<script>
+        var app=angular.module("myApp",[]);
+        app.controller("myController",function($scope){
+            $scope.name="";
+        });
+        // Đặt tên sau khi định nghĩa app Angular bằng cách dùng module sau dấu .,
+            // myApp là tên của App, [] tham số được để rỗng.
+        // Module là thành phần lưu trữ các phần của app AngularJS (controllers, services, filters, directives,etc.)
+    </script>
+</body>
+</html>

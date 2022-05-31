@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-hide Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="">
+    <p>Want to change list to hidden?</p>
+    <input type="checkbox" ng-model="myVar">
+    <ul ng-hide="myVar">
+        <li>Berlin</li>
+        <li>London</li>
+        <li>Paris</li>
+    </ul>
+<!--ng-hide là directive để ẩn các element dưới 1 số điều kiện.-->
+<!--AngularJS lo hết phần code CSS+JS để ẩn element, chỉ cần thêm directive (sau khi gắn model cùng tên)-->
+Show HTML element: <input type="checkbox" ng-model="myVar2">
+<div ng-show="myVar2">
+    <h1>ng-show directive example</h1>
+    <p>Solution of ng-show directive</p>
+</div>
+</body>
+</html>
