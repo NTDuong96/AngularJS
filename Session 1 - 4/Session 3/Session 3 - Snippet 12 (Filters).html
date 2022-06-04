@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snippet 12 - Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <h1>AngularJS Number Filter</h1>
+        Enter the amount to format: <input type="number" ng-model="amount"/><br>
+    100000 | number = {{100000|number}} <br>
+<!--    Line 11: Hằng số = 100000 bất kể nhập số nào khác vào input-->
+    amount | number = {{amount|number}} <br>
+<!--    Line 13: Số hiển thị = input, không có filter đặc biệt-->
+    amount | number:2 = {{amount|number:2}} <br>
+<!--    Line 15: lấy 2 số sau dấu phẩy-->
+    amount | number:4 = {{amount|number:4}} <br>
+<!--    Line 17 cũng vậy, nhưng có 4 số sau dấu phẩy-->
+    amount | number = <span ng-bind="amount | number"></span>
+<!--Bộ lọc (filter) các số: {{Biểu thức số | Số: Hiện bao nhiêu số sau dấu phẩy thập phân (fractionSize)}}-->
+</body>
+</html>

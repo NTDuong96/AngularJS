@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Status</title>
+    <script src="angular.min.js"></script>
+    <style>
+        input.ng-pristine{background-color:aqua;}
+        input.ng-touched.ng-invalid{background-color:red;}
+        input.ng-touched.ng-valid{background:green;}
+    </style>
+<!--    ng-valid/invalid (hợp lệ/không hợp lệ),-->
+<!--    touched/untouched (đã điền vào form và rời form (touched)/nhưng chưa rời form (untouched),-->
+<!--    dirty/pristine (đã thao tác/chưa thao tác)-->
+<!--    Mấy CSS class ở trên chỉ các trạng thái của form-->
+</head>
+<body ng-app="">
+<form name="studentForm" novalidate class="student-form">
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" ng-model="firstName" ng-required="true"/>
+    <br>
+    <br>
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" ng-model="lastName" ng-required="true"/>
+    <br><br>
+    <label for="dob">Mail</label>
+    <input type="email" id="email" ng-model="email" ng-required="true"/>
+    <br><br>
+    <input type="submit" value="Submit"/><br>
+    <p>Initially the input fields are aqua (no interaction from the user).<br>
+    Those become greed when data is valid; else it becomes red when invalid data is entered.</p>
+<!--Nếu người dùng chưa thao tác gì vào form, form sẽ có màu xanh trời (=ng-pristine)-->
+<!--Nếu dữ liệu điền vào các form hợp lệ, form chuyển màu xanh lá. (ng-touched.ng-valid)-->
+<!--Còn dữ liệu không hợp lệ, form sẽ chuyển đỏ (ng-touched.ng-invalid)-->
+</form>
+</body>
+</html>

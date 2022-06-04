@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP Get Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="Formula1Ctrl">
+    <div>
+        <pre>
+    {{text}}
+        </pre>
+    </div>
+    <script>
+    var app=angular.module('myApp',[]);
+    app.controller('Formula1Ctrl',function($scope, $http){
+        $http.get("http://ergast.com/api/f1/2019/circuits.json")
+        .then(function(response){
+                var myObj=response.data;
+                $scope.text=JSON.stringify(myObj, undefined, 2);
+        });
+        // Line 15, get() của $http lấy response (phản hồi) từ URL trong "".
+        // Phần response sẽ được đặt dưới giao diện có thể đọc bằng sử dụng lệnh JSON.stringify (chuyển thành chuỗi)
+    });
+    </script>
+</body>
+</html>

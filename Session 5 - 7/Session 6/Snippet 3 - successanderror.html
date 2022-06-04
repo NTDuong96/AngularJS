@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP Success and Error Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="Formula1Ctrl">
+        {{text}}
+    </div>
+    <script>
+    var app=angular.module('myApp',[]);
+    app.controller('Formula1Ctrl',function($scope, $http){
+    $http.get("http://ergast.com/api/f1/2019/circuits.json")
+    .then(
+        function(response){
+        $scope.text=response.data;
+    },// Line 16-17, nếu get từ $http thành công, thực hiện hàm trong {}
+        function(error){
+        $scope.text="Error occurred when processing the URL";
+        }); // Line 19-20, nếu get fail, hiển thị text trong ""
+    }); // Các hàm với các kết quả tương ứng được ngăn cách bởi dấu ,
+        // Lệnh error() của object promise sẽ được gọi, khi request không thể truy cập vào resource
+        // (vì URL không truy cập vào 1 file hợp lệ)
+    </script>
+</body>
+</html>

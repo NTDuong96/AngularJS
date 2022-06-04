@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Animations</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-animate.js"></script>
+<!--    Line 7: Khác biệt đầu tiên so với app AngularJS thông thường (không hiệu ứng) là:-->
+<!--    Thêm vào file angular-animate.js để áp dụng hiệu ứng động cho app-->
+    <style>
+        div{
+            transition: all linear 1s;
+            background-color: cyan;
+            height:100px;
+            width:100%;
+            position:relative;
+            top: 0;
+            left: 0;
+        }
+        .ng-hide{
+            height: 0;
+            width: 0;
+            background-color: transparent;
+            top:-200px;
+            left:200px
+        }
+    </style>
+</head>
+<body ng-app="ngAnimate">
+<!--    Cùng với line 7, line 29 thêm giá trị "ngAnimate" (để mở hiệu ứng) cho các app AngularJS có hiệu ứng động.-->
+<h1>Hide the Div: <input type="checkbox" ng-model="myCheck"></h1>
+<div ng-hide="myCheck"></div>
+<!--Line 31-32, myCheck là 1 var lấy giá trị từ checkbox => Line 32 sẽ ẩn div nếu checkbox được tích vào (giá trị myCheck=true).-->
+</body>
+</html>

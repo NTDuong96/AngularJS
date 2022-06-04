@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo (Filter)</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<h1>AngularJS Filter</h1>
+    <div ng-controller="myController">
+        Enter name to search in Array: <input type="text" ng-model="searchCriteria"/><br>
+        Result: {{myArr | filter:searchCriteria}}
+    </div>
+<script>
+    var myApp = angular.module('myApp',[]);
+    myApp.controller("myController", function($scope){
+        $scope.myArr=['Steve','Bill','James','Rob','Ram','Mark']
+    });
+</script>
+<!--Để lọc ký tự từ 1 chuỗi tên (myArr): {{biểu thức(chuỗi - myArr) | filter: searchCriteria}}-->
+<!--Ở đây searchCriteria sẽ lọc ra các tên có ký tự tương ứng khi nhập ký tự vào search-->
+</body>
+</html>

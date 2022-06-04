@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upper/Lowercase</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app>
+<h1>AngularJS Upper/Lowercase Filter</h1>
+    <div ng-init="person.firstName='Nguyen';person.lastName='Duong'">
+        Lower Case: {{person.firstName + ' ' + person.lastName | lowercase}} <br>
+        Upper Case: {{person.firstName + ' ' + person.lastName | uppercase}} <br>
+    </div>
+<!--Biểu thức chuyển chữ (ở ví dụ, tên trong ng-init) in hoa/thường có dạng:-->
+<!--{{Tên|uppercase}} (uppercase = In hoa)-->
+<!--{{Tên|lowercase}} (lowercase = viết thường)-->
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snippet 14 (Date)</title>
+    <script src="angular.min.js"></script>
+<!--    Dạng biểu thức: {{Biểu thức ngày tháng | ngày tháng: 'định dạng (format)'}}-->
+</head>
+<body>
+    <h1>AngularJS Date Filter</h1>
+    <div ng-app="gfgApp" ng-controller="dateCtrl">
+        Default Date: {{today|date}}<br>
+<!--        (Default: Jun 1, 2022)
+            (Tháng (tiếng Anh viết tắt) Ngày, Năm)-->
+        Short: {{today|date:'short'}}<br>
+<!--            (Short: 6/1/2022 Giờ (AM/PM)-->
+<!--            [(Tháng/Ngày) số đơn (không có 0)]/Năm(2 số cuối) Giờ (AM/PM)-->
+        Medium: {{today|date:'medium'}}<br>
+        Short Date: {{today|date:'shortDate'}}<br>
+        Long Date: {{today|date:'longDate'}}<br>
+        Medium Date: {{today|date:'mediumDate'}}<br>
+        Full Date: {{today|date: 'fullDate'}}<br>
+        Year: {{today|date:'yyyy'}}<br>
+        Short Time: {{today|date:'shortTime'}}<br>
+        Medium Time: {{today|date:'mediumTime'}}<br>
+    </div>
+    <script>
+        var app=angular.module('gfgApp',[]);
+        app.controller('dateCtrl',function($scope){
+            $scope.today=new Date();
+        });
+    </script>
+</body>
+</html>

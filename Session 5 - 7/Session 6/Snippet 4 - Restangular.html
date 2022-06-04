@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script src="angular-resource.js"></script>
+    <script src="lodash.js"></script>
+    <script src="restangular.js"></script>
+<!--    (2 library mới - loadsh + restangular)-->
+</head>
+<body>
+    <div ng-controller="IndexCtrl">
+        Anime Titles from Studio Ghibli:<br>
+            <ul>
+                <li ng-repeat="title in movies">{{title.title}}<br></li>
+            </ul>
+    </div>
+    <script>
+        var app=angular.module('app',['restangular'])
+                .config(function(RestangularProvider){
+                    RestangularProvider.setBaseUrl('https://ghibliapi.herokuapp.com');
+                });
+        // Line 22, Studio Ghibli có API được public,
+        // Để web developer có thể sử dụng hàm, nhận thông tin về các anime mà studio đã sản xuất và thành công.
+        app.controller('IndexCtrl',function($scope, Restangular){
+            var data=
+                Restangular.all('/films').getList().then(function(result){
+                            $scope.movies=result;
+                });
+            // Line 28, restangular được gắn với App AngularJS, bằng lệnh restangular.all() và getList()
+            // Với cách này, info về các bộ anime của hãng được ghi lại dưới dạng list.
+            // RestangularProvider.setBaseUrl được dùng để đặt URL khởi đầu trong API.
+            // .then được thêm vào 1 hàm để xem request được hay không
+            // List title anime được hiển thị dưới dạng unordered list
+        });
+    </script>
+<!--Lưu ý: Phần var app và app.controller = phần quan trọng trong ví dụ này.-->
+</body>
+</html>

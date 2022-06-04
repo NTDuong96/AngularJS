@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Animations - CSS</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-animate.js"></script>
+    <style>
+        div {
+            transition: all linear 1s;
+            background-color: cyan;
+            height: 100px;
+        }
+        .ng-hide{
+            height:0px;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <h1>Animate the element div: <input type="checkbox" ng-model="myCheck"></h1>
+    <div ng-hide="myCheck"></div>
+    <script>
+        var app=angular.module('myApp',['ngAnimate']);
+        // Line 23: ngAnimate là tham số cho module myApp (cùng line)
+    </script>
+<!--Khi click vào checkbox (div từ hiện (div) => ẩn(.ng-hide)), chiều cao (height) của div sẽ:-->
+<!--Chạy từ 100px xuống 0px (ẩn)-->
+</body>
+</html>

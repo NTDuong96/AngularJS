@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Exception Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body class="container" ng-controller="studentController">
+    Status: {{status}} <br>
+    Data:{{data}}<br>
+        <input type="button" value="Get Data" ng-click="getStudent()"/>
+    <script>
+        var app=angular.module('studentApp',[]);
+        // Line 16, $provide.decorator được thay thế cho $provide thông thường
+        app.config(function($provide){
+            $provide.decorator('$exceptionHandler',function($delegate){
+                return function(exception,cause){
+                    $delegate(exception,cause);
+                    alert('Error occurred! Please contact admin');
+                }; // Có hàm với tham số delegate và lệnh alert hiển thị text trong "" (line 19)
+            });
+        });
+        app.controller("StudentController", function($scope){
+            var onSuccess=function(response){
+                $scope.status=response.status;
+                $scope.data=response.data;
+            };
+            var onError=function(response){
+                $scope.status=response.status;
+                $scope.data=response.data;
+            }
+            $scope.getStudent=function(){
+                $http.get("/getdata").then(onSuccess,onError);
+            };
+        });
+    </script>
+</body>
+</html>

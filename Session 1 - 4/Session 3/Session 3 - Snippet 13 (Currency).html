@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snippet 13 (Currency)</title>
+    <script src="angular.min.js"></script>
+<!--    Biểu thức tiền tệ: {{Biểu thức | currency: 'Kí hiệu tiền tệ' : 'Số chữ số thập phân sau phẩy'}}-->
+</head>
+<body ng-app="myApp">
+<h1>AngularJS Currency Filter</h1>
+    <div ng-controller="myController">
+        Default Currency: {{person.salary | currency}}<br>
+<!--        Line 11: Format thông thường (currency mặc định là $)-->
+        Custom Currency Identifier: {{person.salary | currency: 'Euro'}}<br>
+<!--            Line 13: Currency là Euro (mặc định .00 cuối giá trị)-->
+        W/o fractions: {{person.salary | currency: 'Euro':0}}<br>
+<!--        Line 15: Currency vẫn là Euro, nhưng không có .00 sau số tiền-->
+        2 decimal: <span ng-bind="person.salary|currency:'GBP':2"></span>
+<!--            Line 17: Currency (GBP - Great Britain Pound), 2 số 0 sau phẩy-->
+    </div>
+    <script>
+        var myApp=angular.module('myApp',[]);
+        myApp.controller("myController",function($scope){
+            $scope.person = {salary:100000}
+        });
+    </script>
+</body>
+</html>

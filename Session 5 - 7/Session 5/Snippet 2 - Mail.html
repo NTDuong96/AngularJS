@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail in AngularJS</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="">
+<p>Mail value to this input field:</p>
+<form name="myForm">
+    Mail: <input type="email" name="input" ng-model="emailid" ngMinlength="5" required>
+    <br>
+    <br>
+    <span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+    <span class="error" ng-show="myForm.input.$error.email">Invalid mail</span>
+<!--Khi nhập mail, app sẽ chạy xem có @ và text sau nó. Nếu chuỗi nhập vào không có =>-->
+<!--Thông báo Invalid mail sẽ hiện ra.-->
+    Mail id = {{emailid}}<br><br>
+<!--    Line 18 trả về kết quả rỗng nếu mail không hợp lệ (invalid)-->
+    myForm.input.$valid={{myForm.input.$valid}}<br><br>
+<!--    Line 20 trỏ tới phần input của myForm, xem có hợp lệ không-->
+<!--    (Hợp lệ = ký tự nhập vào input phải đúng điều kiện mail)-->
+    myForm.input.$error={{myForm.input.$error}}<br><br>
+<!--    Line 23 cũng trỏ tới input, nhưng lệnh chỉ xem phần nào input đang bị lỗi-->
+<!--    (Nếu phần đó có lỗi - nó sẽ có giá trị true)-->
+<!--    (Ví dụ, nếu mail nhập vào lưng chừng, địa chỉ sau @ chưa viết hết => "email":true có nghĩa phần mail nhập vào có dạng mail, nhưng chưa đầy đủ-->
+    myForm.$error.email={{!!myForm.$error.email}}<br><br>
+<!--    Line 27 check mail nhập vào đó có bị lỗi/không hợp lệ hay không. Nếu mail hợp lệ, trả về false.-->
+</form>
+</body>
+</html>

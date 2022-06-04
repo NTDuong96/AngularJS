@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP get Demo</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="Formula1Ctrl">
+    {{text}}
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('Formula1Ctrl',function($scope, $http){
+            var promise
+            $http.get("http://ergast.com/api/f1/2019/circuits.json");
+            // Line 13-14, promise là object chỉ ra app cần làm gì khi:
+            // Request fail hay succeeded.
+            promise.the(function(){
+                $scope.text="Request succeeded";
+            }),
+                (function(response, status){
+                    $scope.text="Request failed";
+                });
+        });
+        // Hàm ở line 17 và 20 để gọi ra dòng text trong "" dựa trên kết quả request.
+    </script>
+</body>
+</html>

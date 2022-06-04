@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms Validation (required)</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="">
+<!--    Line 7: Khai báo app AngularJS-->
+    <p>Writing in the input field:</p>
+    <form name="myForm">
+        <input type="text" name="myInput" ng-model="myInput" required>
+    </form>
+<!--Line 10->12: Khai báo form với name (cho form), type + name + model cho input (thêm attribute requried)-->
+    <p>The input's valid state:</p>
+    <h1>{{myForm.myInput.$valid}}</h1>
+<!--Line 14->16: Form hợp lệ với biểu thức line 15:-->
+<!--Trỏ đến form có tên "myForm", input tên "myInput" của form đó, $valid để:-->
+<!--Xác định form hợp lệ khi phải có text điền vào ô form (required = form không để trống)-->
+<!--Giá trị ban đầu (form để trống) trả về false, có thông tin điền vào, trạng thái hợp lệ (valid state) chuyển thành true-->
+</body>
+</html>
